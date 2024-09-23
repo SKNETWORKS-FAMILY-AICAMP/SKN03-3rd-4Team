@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>4ævis - Telco Customer Churn</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -89,9 +89,7 @@
 
 
         <!-- Content Start -->
-        <div class="content">
-
-            
+        <div class="content">        
 
 
             <!-- Navbar Start -->
@@ -111,175 +109,205 @@
             <!-- Navbar End -->
 
          
-            <div class="col-sm-12 col-xl-6">
-                <div class="bg-light rounded h-100 p-4">
+            <div class="col-sm-12 col-xl-10 mx-auto">
+                <div class="bg-light rounded h-100 p-4 ">
                     <h6 class="mb-4">고객 정보</h6>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                        <select class="form-select" id="gender"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">남자</option>
                             <option value="2">여자</option>
                         </select>
-                        <label for="floatingSelect">성별</label>
+                        <label for="gender">성별</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                        <select class="form-select" id="seniorCitizen"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">노인 여부</label>
+                        <label for="seniorCitizen">노인 여부</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                        <select class="form-select" id="partner"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">배우자 여부</label>
+                        <label for="partner">배우자 여부</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                        <select class="form-select" id="dependents"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">부양가족 여부</label>
+                        <label for="dependents">부양가족 여부</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="exampleInputEmail1">
-                        <label for="floatingSelect">가입개월 수</label>
+                        <input type="number" class="form-control" id="tenure" min="1" default="1">
+                        <label for="tenure">가입개월 수</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                        <select class="form-select" id="phoneService"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">폰 서비스 여부</label>
+                        <label for="phoneService">폰 서비스 여부</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="exampleInputEmail1">
-                        <label for="floatingSelect">다중회선 수</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="multipleLines"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">인터넷 서비스 여부</label>
+                        <label for="multipleLines">다중회선 여부</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                        <select class="form-select" id="internetService"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">온라인보안 서비스 여부</label>
+                        <label for="internetService">인터넷 서비스 여부</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="onlineSecurity"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">온라인백업 서비스 여부</label>
+                        <label for="onlineSecurity">온라인보안 서비스 여부</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="onlineBackup"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">DeviceProtection </label>
+                        <label for="onlineBackup">온라인백업 서비스 여부</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect"
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="deviceProtection"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">DeviceProtection </label>
+                        <label for="deviceProtection">장치보호 </label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="techSupport"
+                            aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service">인터넷 서비스 없음</option>
+                            <option value="1">예</option>
+                            <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">기술 지원</label>
+                        <label for="techSupport">기술 지원</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="streamingTV"
+                            aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service">인터넷 서비스 없음</option>
+                            <option value="1">예</option>
+                            <option value="2">아니오</option>
+                            <option value="3">인터넷 서비스 없음</option>
                         </select>
-                        <label for="floatingSelect">TV 스트리밍</label>
+                        <label for="streamingTV">TV 스트리밍</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="streamingMovies"
+                            aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service">인터넷 서비스 없음</option>
+                            <option value="1">예</option>
+                            <option value="2">아니오</option>
+                            <option value="3">인터넷 서비스 없음</option>
                         </select>
-                        <label for="floatingSelect">영화 스트리밍</label>
+                        <label for="streamingMovies">영화 스트리밍</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="contract"
+                            aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
-                            <option value="Month-to-month">월 단위</option>
-                            <option value="One year">1년</option>
-                            <option value="Two year">2년</option>
+                            <option value="1">월 단위</option>
+                            <option value="2">1년</option>
+                            <option value="3">2년</option>
                         </select>
-                        <label for="floatingSelect">계약 기간</label>
+                        <label for="contract">계약 기간</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="paperlessBilling"
+                            aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
+                            <option value="1">예</option>
+                            <option value="2">아니오</option>
                         </select>
-                        <label for="floatingSelect">전자 청구서</label>
+                        <label for="paperlessBilling">전자 청구서</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" id="paymentMethod"
+                            aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
-                            <option value="Electronic check">전자 수표</option>
-                            <option value="Mailed check">우편 수표</option>
-                            <option value="Bank transfer (automatic)">자동 은행 이체</option>
-                            <option value="Credit card (automatic)">자동 신용카드 결제</option>
+                            <option value="1">전자 수표</option>
+                            <option value="2">우편 수표</option>
+                            <option value="3">자동 은행 이체</option>
+                            <option value="4">자동 신용카드 결제</option>
                         </select>
-                        <label for="floatingSelect">결제 방법</label>
+                        <label for="paymentMethod">결제 방법</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="monthlyCharges" step="0.01">
+                        <input type="number" class="form-control" id="monthlyCharges" step="0.01" min="0.01" default="0.01">
                         <label for="monthlyCharges">월 요금</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="totalCharges" step="0.01">
+                        <input type="number" class="form-control" id="totalCharges" step="0.01" min=0.01 default="0.01">
                         <label for="totalCharges">총 요금</label>
                     </div>
                     <button type="button" class="btn btn-primary" id="submitBtn">조회</button>
                     <div id="result"></div>
+                    <div id="dataTableContainer" class="mt-4" style="overflow-x: auto;">
+                        <table id="dataTable" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>성별</th>
+                                    <th>시니어 여부</th>
+                                    <th>파트너 여부</th>
+                                    <th>부양가족 여부</th>
+                                    <th>근속 기간</th>
+                                    <th>전화 서비스</th>
+                                    <th>다중 회선</th>
+                                    <th>인터넷 서비스</th>
+                                    <th>온라인 보안</th>
+                                    <th>온라인 백업</th>
+                                    <th>장치 보호</th>
+                                    <th>기술 지원</th>
+                                    <th>스트리밍 TV</th>
+                                    <th>스트리밍 영화</th>
+                                    <th>계약</th>
+                                    <th>무지불 청구</th>
+                                    <th>결제 방법</th>
+                                    <th>월 요금</th>
+                                    <th>총 요금</th>                                    
+                                    <th>이탈률</th>
+                                    <th>작업</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
-
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -318,45 +346,139 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'prediction/js/main.js' %}"></script>
-    <script>
-    document.getElementById('submitBtn').addEventListener('click', function() {
-        const data = {
-            gender: document.getElementById('floatingSelect').value,
-            seniorCitizen: document.getElementById('floatingSelect').value,
-            partner: document.getElementById('floatingSelect').value,
-            dependents: document.getElementById('floatingSelect').value,
-            tenure: document.getElementById('exampleInputEmail1').value,
-            phoneService: document.getElementById('floatingSelect').value,
-            multipleLines: document.getElementById('exampleInputEmail1').value,
-            internetService: document.getElementById('floatingSelect').value,
-            onlineSecurity: document.getElementById('floatingSelect').value,
-            onlineBackup: document.getElementById('floatingSelect').value,
-            deviceProtection: document.getElementById('floatingSelect').value,
-            techSupport: document.getElementById('floatingSelect').value,
-            streamingTV: document.getElementById('floatingSelect').value,
-            streamingMovies: document.getElementById('floatingSelect').value,
-            contract: document.getElementById('floatingSelect').value,
-            paperlessBilling: document.getElementById('floatingSelect').value,
-            paymentMethod: document.getElementById('floatingSelect').value,
-            monthlyCharges: document.getElementById('monthlyCharges').value,
-            totalCharges: document.getElementById('totalCharges').value
-        };
+    
 
-        fetch('/your-endpoint-url/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('result').innerText = data.result;
-        })
-        .catch(error => console.error('Error:', error));
-    });
+    <script>
+        document.getElementById('internetService').addEventListener('change', function() {
+            const internetService = this.value;
+            const onlineSecurity = document.querySelector('label[for="onlineSecurity"]').parentElement;
+            const onlineBackup = document.querySelector('label[for="onlineBackup"]').parentElement;
+            const deviceProtection = document.querySelector('label[for="deviceProtection"]').parentElement;
+            const techSupport = document.querySelector('label[for="techSupport"]').parentElement;
+            const streamingTV = document.querySelector('label[for="streamingTV"]').parentElement;
+            const streamingMovies = document.querySelector('label[for="streamingMovies"]').parentElement;
+
+            if (internetService == '1') { // 예
+                onlineSecurity.style.display = 'block';
+                onlineBackup.style.display = 'block';
+                deviceProtection.style.display = 'block';
+                techSupport.style.display = 'block';
+                streamingTV.style.display = 'block';
+                streamingMovies.style.display = 'block';
+            } else {
+                onlineSecurity.style.display = 'none';
+                onlineBackup.style.display = 'none';
+                deviceProtection.style.display = 'none';
+                techSupport.style.display = 'none';
+                streamingTV.style.display = 'none';
+                streamingMovies.style.display = 'none';
+            }
+        });
+        document.getElementById('phoneService').addEventListener('change', function() {
+            const phoneService = this.value;
+            const multipleLines = document.querySelector('label[for="multipleLines"]').parentElement;
+
+            if (phoneService == '1') { // 예
+                multipleLines.style.display = 'block';
+            } else {
+                multipleLines.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const event = new Event('change');
+            document.getElementById('internetService').dispatchEvent(event);
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const data = {
+                gender: document.getElementById('gender').value,
+                seniorCitizen: document.getElementById('seniorCitizen').value,
+                partner: document.getElementById('partner').value,
+                dependents: document.getElementById('dependents').value,
+                tenure: document.getElementById('tenure').value,
+                phoneService: document.getElementById('phoneService').value,
+                multipleLines: document.getElementById('multipleLines').value,
+                internetService: document.getElementById('internetService').value,
+                onlineSecurity: document.getElementById('onlineSecurity').value,
+                onlineBackup: document.getElementById('onlineBackup').value,
+                deviceProtection: document.getElementById('deviceProtection').value,
+                techSupport: document.getElementById('techSupport').value,
+                streamingTV: document.getElementById('streamingTV').value,
+                streamingMovies: document.getElementById('streamingMovies').value,
+                contract: document.getElementById('contract').value,
+                paperlessBilling: document.getElementById('paperlessBilling').value,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                monthlyCharges: document.getElementById('monthlyCharges').value,
+                totalCharges: document.getElementById('totalCharges').value
+            };
+
+            const displayData = {
+                gender: document.getElementById('gender').selectedOptions[0].text,
+                seniorCitizen: document.getElementById('seniorCitizen').selectedOptions[0].text,
+                partner: document.getElementById('partner').selectedOptions[0].text,
+                dependents: document.getElementById('dependents').selectedOptions[0].text,
+                tenure: document.getElementById('tenure').value,
+                phoneService: document.getElementById('phoneService').selectedOptions[0].text,
+                multipleLines: document.getElementById('multipleLines').value,
+                internetService: document.getElementById('internetService').selectedOptions[0].text,
+                onlineSecurity: document.getElementById('onlineSecurity').selectedOptions[0].text,
+                onlineBackup: document.getElementById('onlineBackup').selectedOptions[0].text,
+                deviceProtection: document.getElementById('deviceProtection').selectedOptions[0].text,
+                techSupport: document.getElementById('techSupport').selectedOptions[0].text,
+                streamingTV: document.getElementById('streamingTV').selectedOptions[0].text,
+                streamingMovies: document.getElementById('streamingMovies').selectedOptions[0].text,
+                contract: document.getElementById('contract').selectedOptions[0].text,
+                paperlessBilling: document.getElementById('paperlessBilling').selectedOptions[0].text,
+                paymentMethod: document.getElementById('paymentMethod').selectedOptions[0].text,
+                monthlyCharges: document.getElementById('monthlyCharges').value,
+                totalCharges: document.getElementById('totalCharges').value
+            };
+
+            fetch('predict_churn', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}' // Django CSRF token
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('result').innerText = JSON.stringify(result);
+
+                const dataTableBody = document.querySelector('#dataTable tbody');
+                const row = document.createElement('tr');
+
+                for (const value of Object.values(displayData)) {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                }
+                const churnRateCell = document.createElement('td');
+                churnRateCell.textContent = JSON.stringify(result);
+                row.appendChild(churnRateCell);
+
+                const actionCell = document.createElement('td');
+                const actionButton = document.createElement('button');
+                actionButton.textContent = '작업';
+                actionButton.className = 'btn btn-secondary';
+                actionButton.addEventListener('click', function() {
+                    alert(JSON.stringify(data));
+                });
+
+                actionCell.appendChild(actionButton);
+                row.appendChild(actionCell);
+
+                dataTableBody.appendChild(row);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     </script>
+
+  
 </body>
 
 </html>

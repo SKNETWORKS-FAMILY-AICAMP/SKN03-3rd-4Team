@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>4ævis - Telco Customer Churn</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -109,7 +109,7 @@
             <!-- Navbar End -->
 
          
-            <div class="col-sm-12 col-xl-12 mx-auto">
+            <div class="col-sm-12 col-xl-10 mx-auto">
                 <div class="bg-light rounded h-100 p-4 ">
                     <h6 class="mb-4">고객 정보</h6>
                     <div class="form-floating mb-3">
@@ -149,7 +149,7 @@
                         <label for="dependents">부양가족 여부</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="tenure">
+                        <input type="number" class="form-control" id="tenure" min="1" default="1">
                         <label for="tenure">가입개월 수</label>
                     </div>
                     <div class="form-floating mb-3">
@@ -161,9 +161,14 @@
                         </select>
                         <label for="phoneService">폰 서비스 여부</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="multipleLines">
-                        <label for="multipleLines">다중회선 수</label>
+                    <div class="form-floating mb-3" style="display: none;">
+                        <select class="form-select" id="multipleLines"
+                            aria-label="Floating label select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">예</option>
+                            <option value="2">아니오</option>
+                        </select>
+                        <label for="multipleLines">다중회선 여부</label>
                     </div>
                     <div class="form-floating mb-3">
                         <select class="form-select" id="internetService"
@@ -192,16 +197,16 @@
                         </select>
                         <label for="onlineBackup">온라인백업 서비스 여부</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" style="display: none;">
                         <select class="form-select" id="deviceProtection"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
                             <option value="1">예</option>
                             <option value="2">아니오</option>
                         </select>
-                        <label for="deviceProtection">DeviceProtection </label>
+                        <label for="deviceProtection">장치보호 </label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" style="display: none;">
                         <select class="form-select" id="techSupport"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
@@ -210,7 +215,7 @@
                         </select>
                         <label for="techSupport">기술 지원</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" style="display: none;">
                         <select class="form-select" id="streamingTV"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
@@ -220,7 +225,7 @@
                         </select>
                         <label for="streamingTV">TV 스트리밍</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" style="display: none;">
                         <select class="form-select" id="streamingMovies"
                             aria-label="Floating label select example">
                             <option selected>Open this select menu</option>
@@ -261,16 +266,16 @@
                         <label for="paymentMethod">결제 방법</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="monthlyCharges" step="0.01">
+                        <input type="number" class="form-control" id="monthlyCharges" step="0.01" min="0.01" default="0.01">
                         <label for="monthlyCharges">월 요금</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="totalCharges" step="0.01">
+                        <input type="number" class="form-control" id="totalCharges" step="0.01" min=0.01 default="0.01">
                         <label for="totalCharges">총 요금</label>
                     </div>
                     <button type="button" class="btn btn-primary" id="submitBtn">조회</button>
                     <div id="result"></div>
-                    <div id="dataTableContainer" class="mt-4 d-flex justify-content-center">
+                    <div id="dataTableContainer" class="mt-4" style="overflow-x: auto;">
                         <table id="dataTable" class="table table-bordered">
                             <thead>
                                 <tr>
@@ -344,111 +349,133 @@
     
 
     <script>
-    document.getElementById('internetService').addEventListener('change', function() {
-        const internetService = this.value;
-        const onlineSecurity = document.querySelector('label[for="onlineSecurity"]').parentElement;
-        const onlineBackup = document.querySelector('label[for="onlineBackup"]').parentElement;
+        document.getElementById('internetService').addEventListener('change', function() {
+            const internetService = this.value;
+            const onlineSecurity = document.querySelector('label[for="onlineSecurity"]').parentElement;
+            const onlineBackup = document.querySelector('label[for="onlineBackup"]').parentElement;
+            const deviceProtection = document.querySelector('label[for="deviceProtection"]').parentElement;
+            const techSupport = document.querySelector('label[for="techSupport"]').parentElement;
+            const streamingTV = document.querySelector('label[for="streamingTV"]').parentElement;
+            const streamingMovies = document.querySelector('label[for="streamingMovies"]').parentElement;
 
-        if (internetService == '1') { // 예
-            onlineSecurity.style.display = 'block';
-            onlineBackup.style.display = 'block';
-        } else {
-            onlineSecurity.style.display = 'none';
-            onlineBackup.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const event = new Event('change');
-        document.getElementById('internetService').dispatchEvent(event);
-    });
-
-    document.getElementById('submitBtn').addEventListener('click', function() {
-        const data = {
-            gender: document.getElementById('gender').value,
-            seniorCitizen: document.getElementById('seniorCitizen').value,
-            partner: document.getElementById('partner').value,
-            dependents: document.getElementById('dependents').value,
-            tenure: document.getElementById('tenure').value,
-            phoneService: document.getElementById('phoneService').value,
-            multipleLines: document.getElementById('multipleLines').value,
-            internetService: document.getElementById('internetService').value,
-            onlineSecurity: document.getElementById('onlineSecurity').value,
-            onlineBackup: document.getElementById('onlineBackup').value,
-            deviceProtection: document.getElementById('deviceProtection').value,
-            techSupport: document.getElementById('techSupport').value,
-            streamingTV: document.getElementById('streamingTV').value,
-            streamingMovies: document.getElementById('streamingMovies').value,
-            contract: document.getElementById('contract').value,
-            paperlessBilling: document.getElementById('paperlessBilling').value,
-            paymentMethod: document.getElementById('paymentMethod').value,
-            monthlyCharges: document.getElementById('monthlyCharges').value,
-            totalCharges: document.getElementById('totalCharges').value
-        };
-
-        const displayData = {
-            gender: document.getElementById('gender').selectedOptions[0].text,
-            seniorCitizen: document.getElementById('seniorCitizen').selectedOptions[0].text,
-            partner: document.getElementById('partner').selectedOptions[0].text,
-            dependents: document.getElementById('dependents').selectedOptions[0].text,
-            tenure: document.getElementById('tenure').value,
-            phoneService: document.getElementById('phoneService').selectedOptions[0].text,
-            multipleLines: document.getElementById('multipleLines').value,
-            internetService: document.getElementById('internetService').selectedOptions[0].text,
-            onlineSecurity: document.getElementById('onlineSecurity').selectedOptions[0].text,
-            onlineBackup: document.getElementById('onlineBackup').selectedOptions[0].text,
-            deviceProtection: document.getElementById('deviceProtection').selectedOptions[0].text,
-            techSupport: document.getElementById('techSupport').selectedOptions[0].text,
-            streamingTV: document.getElementById('streamingTV').selectedOptions[0].text,
-            streamingMovies: document.getElementById('streamingMovies').selectedOptions[0].text,
-            contract: document.getElementById('contract').selectedOptions[0].text,
-            paperlessBilling: document.getElementById('paperlessBilling').selectedOptions[0].text,
-            paymentMethod: document.getElementById('paymentMethod').selectedOptions[0].text,
-            monthlyCharges: document.getElementById('monthlyCharges').value,
-            totalCharges: document.getElementById('totalCharges').value
-        };
-
-        fetch('predict_churn', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}' // Django CSRF token
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(result => {
-            document.getElementById('result').innerText = JSON.stringify(result);
-
-            const dataTableBody = document.querySelector('#dataTable tbody');
-            const row = document.createElement('tr');
-
-            for (const value of Object.values(displayData)) {
-                const cell = document.createElement('td');
-                cell.textContent = value;
-                row.appendChild(cell);
+            if (internetService == '1') { // 예
+                onlineSecurity.style.display = 'block';
+                onlineBackup.style.display = 'block';
+                deviceProtection.style.display = 'block';
+                techSupport.style.display = 'block';
+                streamingTV.style.display = 'block';
+                streamingMovies.style.display = 'block';
+            } else {
+                onlineSecurity.style.display = 'none';
+                onlineBackup.style.display = 'none';
+                deviceProtection.style.display = 'none';
+                techSupport.style.display = 'none';
+                streamingTV.style.display = 'none';
+                streamingMovies.style.display = 'none';
             }
-            const churnRateCell = document.createElement('td');
-            churnRateCell.textContent = JSON.stringify(result);
-            row.appendChild(churnRateCell);
-
-            const actionCell = document.createElement('td');
-            const actionButton = document.createElement('button');
-            actionButton.textContent = '작업';
-            actionButton.className = 'btn btn-secondary';
-            actionButton.addEventListener('click', function() {
-                alert(JSON.stringify(data));
-            });
-
-            actionCell.appendChild(actionButton);
-            row.appendChild(actionCell);
-
-            dataTableBody.appendChild(row);
-        })
-        .catch(error => {
-            console.error('Error:', error);
         });
-    });
+        document.getElementById('phoneService').addEventListener('change', function() {
+            const phoneService = this.value;
+            const multipleLines = document.querySelector('label[for="multipleLines"]').parentElement;
+
+            if (phoneService == '1') { // 예
+                multipleLines.style.display = 'block';
+            } else {
+                multipleLines.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const event = new Event('change');
+            document.getElementById('internetService').dispatchEvent(event);
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const data = {
+                gender: document.getElementById('gender').value,
+                seniorCitizen: document.getElementById('seniorCitizen').value,
+                partner: document.getElementById('partner').value,
+                dependents: document.getElementById('dependents').value,
+                tenure: document.getElementById('tenure').value,
+                phoneService: document.getElementById('phoneService').value,
+                multipleLines: document.getElementById('multipleLines').value,
+                internetService: document.getElementById('internetService').value,
+                onlineSecurity: document.getElementById('onlineSecurity').value,
+                onlineBackup: document.getElementById('onlineBackup').value,
+                deviceProtection: document.getElementById('deviceProtection').value,
+                techSupport: document.getElementById('techSupport').value,
+                streamingTV: document.getElementById('streamingTV').value,
+                streamingMovies: document.getElementById('streamingMovies').value,
+                contract: document.getElementById('contract').value,
+                paperlessBilling: document.getElementById('paperlessBilling').value,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                monthlyCharges: document.getElementById('monthlyCharges').value,
+                totalCharges: document.getElementById('totalCharges').value
+            };
+
+            const displayData = {
+                gender: document.getElementById('gender').selectedOptions[0].text,
+                seniorCitizen: document.getElementById('seniorCitizen').selectedOptions[0].text,
+                partner: document.getElementById('partner').selectedOptions[0].text,
+                dependents: document.getElementById('dependents').selectedOptions[0].text,
+                tenure: document.getElementById('tenure').value,
+                phoneService: document.getElementById('phoneService').selectedOptions[0].text,
+                multipleLines: document.getElementById('multipleLines').value,
+                internetService: document.getElementById('internetService').selectedOptions[0].text,
+                onlineSecurity: document.getElementById('onlineSecurity').selectedOptions[0].text,
+                onlineBackup: document.getElementById('onlineBackup').selectedOptions[0].text,
+                deviceProtection: document.getElementById('deviceProtection').selectedOptions[0].text,
+                techSupport: document.getElementById('techSupport').selectedOptions[0].text,
+                streamingTV: document.getElementById('streamingTV').selectedOptions[0].text,
+                streamingMovies: document.getElementById('streamingMovies').selectedOptions[0].text,
+                contract: document.getElementById('contract').selectedOptions[0].text,
+                paperlessBilling: document.getElementById('paperlessBilling').selectedOptions[0].text,
+                paymentMethod: document.getElementById('paymentMethod').selectedOptions[0].text,
+                monthlyCharges: document.getElementById('monthlyCharges').value,
+                totalCharges: document.getElementById('totalCharges').value
+            };
+
+            fetch('predict_churn', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}' // Django CSRF token
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('result').innerText = JSON.stringify(result);
+
+                const dataTableBody = document.querySelector('#dataTable tbody');
+                const row = document.createElement('tr');
+
+                for (const value of Object.values(displayData)) {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                }
+                const churnRateCell = document.createElement('td');
+                churnRateCell.textContent = JSON.stringify(result);
+                row.appendChild(churnRateCell);
+
+                const actionCell = document.createElement('td');
+                const actionButton = document.createElement('button');
+                actionButton.textContent = '작업';
+                actionButton.className = 'btn btn-secondary';
+                actionButton.addEventListener('click', function() {
+                    alert(JSON.stringify(data));
+                });
+
+                actionCell.appendChild(actionButton);
+                row.appendChild(actionCell);
+
+                dataTableBody.appendChild(row);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     </script>
 
   

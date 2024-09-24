@@ -7,6 +7,51 @@
 이 프로젝트는 **RandomForestClassifier**와 **Long Short-Term Memory (LSTM)** 네트워크를 활용하여 고객 이탈(Churn)을 예측하는 두 가지 접근 방식을 비교하고 평가합니다. **SMOTE**를 통해 클래스 불균형 문제를 처리하고, **GridSearchCV**로 하이퍼파라미터 튜닝을 수행하며, **ROC-AUC** 평가와 **SHAP** 분석을 통해 모델의 성능과 설명력을 확인합니다. 주요 목표는 성능이 좋은 분류 모델을 구축하고, 그 결과를 설명할 수 있는 모델을 만드는 것입니다.
 
 ---
+## 팀원 소개
+<table align="center">
+  <tbody>
+    <tr>
+      <td align="center">
+        <div>
+          <img src="https://i.namu.wiki/i/yXx6ESHdd8pAD4MH7yogqtY9ZT11KYwrMJup-u8hwEuAfbdP_6AQgAFiubX9PI9Hi4ugFbTHwY4cCYGjKXytKg.webp"width="100px;"height="140px;" alt=""/>
+           <a href="https://github.com/Lerini98"><div align=center>오승민</div></a>
+        </div>
+      </td>
+      <td align="center">
+        <div>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5_5TjQqzEHTdKixLyvCZqFe5pbfshSDZ7pBQ_4MXN9LUWS7tPE5xQBsRzBqYvvY4I68&usqp=CAU"width="100px;"height="140px;" alt=""/>
+          <a href="https://github.com/jeehun98"><div align=center>김병수</div></a>
+        </div>
+      </td>
+      <td align="center">
+        <div>
+          <img src="https://i.namu.wiki/i/KwRE2BGDM3SPSpYClq_eVV5-XRoWpb5yNoPcbHjwWQno9OLmQvMrOQtmAN_5EIonlXNMyJsnRrqydEd6ED68XQ.webp"width="100px;"height="140px;" alt=""/>
+          <a href="https://github.com/5-lee"><div align=center>최연규</div></a>
+        </div>
+      </td>
+      <td align="center">
+        <div>
+          <img src="https://i.namu.wiki/i/RFSw15kinXP8GxT-4DVmbx8Iqp1VME0jRnV0hQtcD1RODG3a4LN1SGNHF_qcD20tGGyZnueOWxw51puRkloWCg.webp"width="100px;"height="140px;" alt=""/>
+            <a href="https://github.com/{깃헙주소}"><div align=center>김종식</div></a>
+        </div>
+      </td>
+      <td align="center">
+        <div>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFiHPLAspc66fvh62y_dFZucAjqPWd1uDxUayMHPTd6tcCubupNdusUtJVJiI5nGGG27Q&usqp=CAU"width="100px;"height="140px;" alt=""/>
+            <a href="https://github.com/{깃헙주소}"><div align=center>구나연</div></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br>
+### 팀원별 역할 소개
+| 오승민 | 김병수 | 최연규 | 김종식 | 구나연 | 
+|:--:|:--:|:--:|:--:|:--:|
+| @BS-KIM-97 | @min3009 | @zelope | @joowon582 | @Leejoowon123 |
+
+
 
 ## 요구 사항
 
@@ -157,10 +202,7 @@ pip install -r requirements.txt
 - 각 시점별 가중치가 균등하게 분포하여 장기적인 패턴 학습에 도움이 되었음.
 
 
-## 팀원 소개
-| 김병수 | 오승민 | 최연규 | 김종식 | 구나연 | 
-|:--:|:--:|:--:|:--:|:--:|
-| @BS-KIM-97 | @min3009 | @zelope | @joowon582 | @Leejoowon123 |
+
 
 ## 기술 스택
 

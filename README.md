@@ -66,6 +66,40 @@ pip install -r requirements.txt
 - 모델 저장, ROC 커브 시각화, 특성 중요도 시각화, **SHAP** 분석 등의 공통 기능을 제공합니다.
 
 
+
+
+---
+
+## 오류 해결 과정
+
+프로젝트 진행 중 다음과 같은 오류 및 문제를 해결했습니다:
+1. 모델 저장 및 불러오기 시 오류
+
+	•	오류 원인: focal_loss 함수가 Keras에서 직렬화되지 않음.
+	•	해결 방법: @tf.keras.utils.register_keras_serializable() 데코레이터를 추가하여 Keras에서 직렬화 가능하게 함.
+
+2. 모델 예측 후 결과 처리 오류
+
+	•	오류 원인: 예측값이 리스트 형태로 반환되고, 차원 불일치로 인해 numpy.concatenate() 함수 사용 시 오류 발생.
+	•	해결 방법: 각 예측값을 1차원 배열로 변환하여 np.concatenate()를 사용함.
+
+3. Attention 레이어 관련 오류
+
+	•	오류 원인: 모델이 호출되지 않은 상태에서 Attention 가중치를 추출하려고 함.
+	•	해결 방법: model.predict()를 먼저 호출해 모델을 실행한 후, Attention 가중치를 추출하도록 변경함.
+
+4. 데이터 전처리 관련 오류
+
+	•	오류 원인: year 컬럼이 존재하지 않아 데이터 시계열 정렬 중 KeyError 발생.
+	•	해결 방법: 전처리 단계에서 시계열 컬럼을 올바르게 생성하도록 수정함.
+
+5. 예측 시 차원 불일치 오류
+
+	•	오류 원인: 예측값의 차원이 다름.
+	•	해결 방법: 예측값을 평탄화하고 일관된 차원으로 맞춤.
+
+
+
 ## 팀원 소개
 | 김병수 | 오승민 | 최연규 | 김종식 | 구나연 | 
 |:--:|:--:|:--:|:--:|:--:|
@@ -86,4 +120,3 @@ pip install -r requirements.txt
 ![keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
 ![tensorflow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![matplotlib](https://img.shields.io/badge/Matplotlib-013243?style=for-the-badge&logo=matplotlib&logoColor=white)
-

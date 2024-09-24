@@ -54,5 +54,5 @@ for i in range(len(df['churn_2023'])):
         churn_yes_tenure.append(int(df['tenure_2023'][i]))
     else:
         chrun_no_tenure.append(int(df['tenure_2023'][i]))
-print(len(df['churn_2023']))
+
 

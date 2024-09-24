@@ -59,6 +59,10 @@ pip install -r requirements.txt
   
 - **시퀀스 패딩**: LSTM 모델의 입력 시퀀스 길이를 통일하기 위해 짧은 시퀀스를 패딩하여 일관된 형태의 데이터를 입력으로 제공합니다.
 
+
+<img width="817" alt="스크린샷 2024-09-24 오전 11 16 21" src="https://github.com/user-attachments/assets/ede2a37e-f139-4809-b9be-0652d6beb322">
+
+
 ### 공통 유틸리티
 
 #### `utils.py`
@@ -103,8 +107,21 @@ pip install -r requirements.txt
 #### 1. **Random Forest 결과**
 ![rf_rocauc_curve](https://github.com/user-attachments/assets/fc24e0cd-da5b-4b34-b1d8-bedc19f356e6)
 
-- 정확도: 0.81
-- ROC-AUC: 0.86
+
+
+##### Random Forest 모델 성능
+
+| Class | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| 0     | 0.88      | 0.85   | 0.87     | 931     |
+| 1     | 0.62      | 0.69   | 0.65     | 337     |
+
+| Accuracy   | 0.81 |
+| Macro avg  | 0.75 |
+| Weighted avg | 0.81 |
+
+**Random Forest ROC-AUC Score**: 0.8614
+
 - 주요 변수: 계약 유형, 월 요금, 가입 기간
 
 ![rf_feature_importance](https://github.com/user-attachments/assets/9bc211b1-9d90-4e14-8b40-422eb78e7d9e)
@@ -116,8 +133,18 @@ pip install -r requirements.txt
 ![lstm_auc_graph](https://github.com/user-attachments/assets/fc26a240-8913-4b83-9f97-a6746f0f2225)
 ![lstm_loss_graph](https://github.com/user-attachments/assets/72834889-bbd7-459f-a214-eb6cd79b0fa4)
 
-- 정확도: 0.99
-- ROC-AUC: 1.0
+##### LSTM 모델 성능
+
+| Class | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| 0.0   | 1.00      | 0.99   | 1.00     | 1033    |
+| 1.0   | 0.98      | 1.00   | 0.99     | 376     |
+
+| Accuracy   | 0.99 |
+| Macro avg  | 0.99 |
+| Weighted avg | 0.99 |
+
+**LSTM ROC-AUC Score**: 1.0
 - 어텐션 메커니즘을 통해 중요한 시점에 집중하여 더 높은 성능을 보임.
 
 ![lstm_confusion_matrix](https://github.com/user-attachments/assets/6b8bc69d-be69-4b91-a7f2-8065a40dd63b)

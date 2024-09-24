@@ -11,7 +11,7 @@ from tensorflow.keras.layers import LSTM, Dense, Masking, Dropout, BatchNormaliz
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.regularizers import l2
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.utils.class_weight import compute_class_weight
@@ -21,20 +21,17 @@ from tensorflow.keras.saving import register_keras_serializable
 
 def preprocess_lstm(data):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    print('ddd222d343')
+    
     file_path = 'Churn_Data_-_Final_Version.csv'
     file_path = os.path.join(BASE_DIR, 'data', file_path)
 
-    df = data
+    df = load_data(file_path)
+    # df = data
     df = rename_columns(df)
-    print('pr1')
     df = handle_missing_values(df, ['totalcharges_2017', 'totalcharges_2018', 'totalcharges_2019', 'totalcharges_2020', 'totalcharges_2023'])
-    print('pr2')
     df = encode_target_variable(df)
-    print('pr3')
     df = feature_engineering(df)
-    print('pr4')
-    print('dddd343')
+    
     # 연도별 데이터 변환
     column_mapping = {
         'number_of_dependents': 'dependents',
@@ -154,30 +151,27 @@ def preprocess_lstm(data):
     sequences_padded = pad_sequences(sequences, maxlen=max_seq_length, dtype='float32', padding='post', truncating='post')
     labels = np.array(labels)
     customer_ids = np.array(customer_ids)
+    ###############################################################################################################################################
+    from sklearn.utils import shuffle
+    customer_ids_shuffled, sequences_padded_shuffled, labels_shuffled = shuffle(customer_ids, sequences_padded, labels, random_state=42)
     
-    # customer_ids_shuffled, sequences_padded_shuffled, labels_shuffled = shuffle(customer_ids, sequences_padded, labels, random_state=42)
+    split_index = int(len(customer_ids_shuffled) * 0.8)
+    X_train = sequences_padded_shuffled[:split_index]
+    y_train = labels_shuffled[:split_index]
+    X_test = sequences_padded_shuffled[:]
+    y_test = labels_shuffled[:]
+    ################################################################################################################################################
+    overlapping_ids = set(customer_ids_shuffled[:split_index]).intersection(set(customer_ids_shuffled[split_index:]))
+    print(f"훈련 세트와 테스트 세트 간 중복된 고객 수: {len(overlapping_ids)}")
     
-    # 데이터셋을 전부 테스트 세트로 사용
-    X_test = sequences_padded
-    y_test = labels
+    unique_train, counts_train = np.unique(y_train, return_counts=True)
+    unique_test, counts_test = np.unique(y_test, return_counts=True)
+    print("훈련 데이터 레이블 분포:", dict(zip(unique_train, counts_train)))
+    print("테스트 데이터 레이블 분포:", dict(zip(unique_test, counts_test)))
     
-    print('X_test', X_test)
-    print('y_test', y_test)
-    # overlapping_ids = set(customer_ids_shuffled).intersection(set(customer_ids_shuffled))
-    # print(f"훈련 세트와 테스트 세트 간 중복된 고객 수: {len(overlapping_ids)}")
+   
     
-    # unique_test, counts_test = np.unique(y_test, return_counts=True)
-    # print("테스트 데이터 레이블 분포:", dict(zip(unique_test, counts_test)))
-    
-    class_weights = compute_class_weight(
-        class_weight='balanced',
-        classes=np.unique(y_test),
-        y=y_test
-    )
-    class_weight_dict = dict(enumerate(class_weights))
-    print("클래스 가중치:", class_weight_dict)
-    
-    return X_test, y_test, n_features, max_seq_length, class_weight_dict
+    return X_train, X_test, y_train, y_test, n_features, max_seq_length
 
 
 @register_keras_serializable()

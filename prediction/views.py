@@ -3,7 +3,7 @@ from django.http import JsonResponse
 import json
 import joblib
 import os
-from models.ml_models.preprocessing import preprocess_input
+from models.preprocessing import preprocess_input
 from tensorflow.keras.models import load_model
 from models.data_preprocessing import preprocessing_ml
 from models.data_preprocessing import preprocess
@@ -20,27 +20,10 @@ def predict_churn(request):
     
     
     dl_input_data = preprocess_input(data)
-    print('ddddd')
-    print(dl_input_data)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     # 현재 파일의 경로를 기준으로 상대 경로를 계산
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    ml_model_path = os.path.join(BASE_DIR, 'models/ml_models', 'best_rf_model.pkl')
+    # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    # ml_model_path = os.path.join(BASE_DIR, 'models/ml_models', 'best_rf_model.pkl')
 
     # X_train_ml, X_val_ml, X_test_ml, y_train_ml, y_val_ml, y_test_ml, preprocessor, data_ml = preprocess()
 
@@ -55,7 +38,7 @@ def predict_churn(request):
     
 
 
-    X_test_lstm, y_test_lstm, n_features, max_seq_length, class_weight_dict = preprocess_lstm(dl_input_data)
+    X_train_lstm, X_test_lstm, y_train_lstm, y_test_lstm, n_features, max_seq_length = preprocess_lstm(dl_input_data)
     # 업로드 된 딥모델 파일 경로
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -66,8 +49,11 @@ def predict_churn(request):
     dl_model = load_model(ml_model_path, custom_objects={'focal_loss_fixed': focal_loss_fixed})
     # 예측
     print('예측시작')
-    predictions = dl_model.predict(X_test_lstm).flatten()
+    predictions = dl_model.predict(X_test_lstm)
     print('예측종료')
-    print(type(X_test_lstm))
+    print(predictions)
+    print(predictions[0][0])
 
-    return JsonResponse({'result': predictions.tolist() })
+    pred = (float(predictions[0][0])-0.5)*1000
+
+    return JsonResponse({'result': pred })

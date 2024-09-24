@@ -49,11 +49,11 @@ def get_customer_solution(predictions):
         solution_list.append("가입 기간이 짧습니다. 장기 유지 프로모션을 제공하세요.")
 
     # 2. 계약 기간이 a일 경우
-    if predictions.get('contract') and int(predictions.get('contract')) < 1:
+    if predictions.get('contract') == "Month-to-month":  # 월 단위 계약
         solution_list.append("계약 기간이 짧습니다. 장기 계약 할인 제공을 고려하세요.")
 
     # 3. 월 비용이 a 이상일 경우
-    if predictions.get('monthly_charges') and float(predictions.get('monthly_charges')) > 50:
+    if predictions.get('monthlyCharges') and float(predictions.get('monthlyCharges')) > 50:
         solution_list.append("월 비용이 높습니다. 월 요금 할인을 제공하거나 저렴한 요금제를 추천하세요.")
 
     # 4. 총 비용이 a 이상일 경우
@@ -61,43 +61,43 @@ def get_customer_solution(predictions):
         solution_list.append("총 비용이 높습니다. VIP 혜택을 추천하거나 추가 할인을 제공하세요.")
 
     # 5. 결제 방식이 특정 방식일 경우
-    if predictions.get('payment_method') == '1':  # '전자 수표'일 경우
+    if predictions.get('paymentMethod') == 'Electronic check':  # 전자 수표일 경우
         solution_list.append("결제 방식이 불편할 수 있습니다. 자동 은행 이체 또는 신용카드 결제를 추천하세요.")
 
     # 6. 폰 서비스가 없는 경우
-    if predictions.get('phoneService') == '2':  # '아니오'일 경우
+    if predictions.get('phoneService') == 'No':  # 폰 서비스 없음
         solution_list.append("전화 서비스가 없습니다. 번들 서비스를 제공하여 전화 서비스를 추가하세요.")
 
     # 7. 종이 영수증을 받는 경우
-    if predictions.get('paperlessBilling') == '2':  # '아니오'일 경우
+    if predictions.get('paperlessBilling') == 'No':  # 종이 청구서
         solution_list.append("종이 청구서를 받고 있습니다. 전자 청구서로 전환하도록 유도하세요.")
 
     # 8. 다중 회선을 사용하지 않는 경우
-    if predictions.get('multipleLines') == '2':  # '아니오'일 경우
+    if predictions.get('multipleLines') == 'No':  # 다중 회선 없음
         solution_list.append("다중 회선을 사용하지 않습니다. 다중 회선 사용을 장려하세요.")
 
     # 9. 인터넷 보안이 되어 있지 않을 경우
-    if predictions.get('onlineSecurity') == '2':  # '아니오'일 경우
+    if predictions.get('onlineSecurity') == 'No':  # 인터넷 보안 없음
         solution_list.append("인터넷 보안 서비스가 없습니다. 보안 서비스를 추가하여 보호 혜택을 제공하세요.")
 
     # 10. 온라인 백업이 되어 있지 않을 경우
-    if predictions.get('onlineBackup') == '2':  # '아니오'일 경우
+    if predictions.get('onlineBackup') == 'No':  # 온라인 백업 없음
         solution_list.append("온라인 백업 서비스가 없습니다. 온라인 백업 서비스를 추가하도록 권장하세요.")
 
     # 11. 장치 보호가 되어 있지 않을 경우
-    if predictions.get('deviceProtection') == '2':  # '아니오'일 경우
+    if predictions.get('deviceProtection') == 'No':  # 장치 보호 없음
         solution_list.append("장치 보호 서비스가 없습니다. 장치 보호 서비스를 추가하세요.")
 
     # 12. 기술 지원을 받지 않는 경우
-    if predictions.get('techSupport') == '2':  # '아니오'일 경우
+    if predictions.get('techSupport') == 'No':  # 기술 지원 없음
         solution_list.append("기술 지원 서비스가 없습니다. 기술 지원 서비스를 추천하세요.")
 
     # 13. TV 스트리밍을 받지 않는 경우
-    if predictions.get('streamingTV') == '2':  # '아니오'일 경우
+    if predictions.get('streamingTV') == 'No':  # TV 스트리밍 없음
         solution_list.append("TV 스트리밍 서비스를 이용하지 않습니다. TV 스트리밍 서비스를 추가하세요.")
 
     # 14. 영화 스트리밍을 받지 않는 경우
-    if predictions.get('streamingMovies') == '2':  # '아니오'일 경우
+    if predictions.get('streamingMovies') == 'No':  # 영화 스트리밍 없음
         solution_list.append("영화 스트리밍 서비스를 이용하지 않습니다. 영화 스트리밍 서비스를 추천하세요.")
 
     return solution_list

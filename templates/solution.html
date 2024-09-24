@@ -47,12 +47,12 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                <a href="main.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary">4ævis</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="solution/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="{% static 'prediction/img/user.jpg' %}" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -92,6 +92,22 @@
         <!-- Content Start -->
 
         <div class="content">
+                        <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                </div>
+            </nav>
+            <!-- Navbar End -->
+            
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
@@ -99,10 +115,26 @@
                             <div class="ms-3">
                                 <p class="mb-2">성별</p>
                                 <h6 class="mb-0">
-                                    {% if gender == '1' %}
+                                    {% if gender == "Male" %}
                                         남자
-                                    {% elif gender == '2' %}
+                                    {% elif gender == "Female" %}
                                         여자
+                                    {% else %}
+                                        정보 없음
+                                    {% endif %}
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <div class="ms-3">
+                                <p class="mb-2">노인 여부</p>
+                                <h6 class="mb-0">
+                                    {% if seniorCitizen == "0" %}
+                                        아니오
+                                    {% elif seniorCitizen == "1" %}
+                                        예
                                     {% else %}
                                         정보 없음
                                     {% endif %}
@@ -115,9 +147,9 @@
                             <div class="ms-3">
                                 <p class="mb-2">배우자 여부</p>
                                 <h6 class="mb-0">
-                                    {% if partner == '1' %}
+                                    {% if partner == "Yes" %}
                                         예
-                                    {% elif partner == '2' %}
+                                    {% elif partner == "No" %}
                                         아니오
                                     {% else %}
                                         정보 없음
@@ -131,10 +163,10 @@
                             <div class="ms-3">
                                 <p class="mb-2">부양가족 여부</p>
                                 <h6 class="mb-0">
-                                    {% if dependents == '1' %}
-                                        예
-                                    {% elif dependents == '2' %}
+                                    {% if dependents == "0" %}
                                         아니오
+                                    {% elif dependents == "1" %}
+                                        예
                                     {% else %}
                                         정보 없음
                                     {% endif %}
@@ -147,11 +179,7 @@
                             <div class="ms-3">
                                 <p class="mb-2">가입 개월 수</p>
                                 <h6 class="mb-0">
-                                    {% if tenure %}
-                                        {{ tenure }}
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
+                                    {{ tenure|default:"정보 없음" }}
                                 </h6>
                             </div>
                         </div>
@@ -161,9 +189,9 @@
                             <div class="ms-3">
                                 <p class="mb-2">폰 서비스 여부</p>
                                 <h6 class="mb-0">
-                                    {% if phoneService == '1' %}
+                                    {% if phoneService == "Yes" %}
                                         예
-                                    {% elif phoneService == '2' %}
+                                    {% elif phoneService == "No" %}
                                         아니오
                                     {% else %}
                                         정보 없음
@@ -175,12 +203,14 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <div class="ms-3">
-                                <p class="mb-2">다중회선 여부</p>
+                                <p class="mb-2">인터넷 서비스 여부</p>
                                 <h6 class="mb-0">
-                                    {% if multipleLines == '1' %}
-                                        예
-                                    {% elif multipleLines == '2' %}
+                                    {% if internetService == "No" %}
                                         아니오
+                                    {% elif internetService == "DSL" %}
+                                        DSL
+                                    {% elif internetService == "Fiber optic" %}
+                                        Fiber optic
                                     {% else %}
                                         정보 없음
                                     {% endif %}
@@ -193,144 +223,12 @@
                             <div class="ms-3">
                                 <p class="mb-2">결제 방법</p>
                                 <h6 class="mb-0">
-                                    {% if paymentMethod == '1' %}
+                                    {% if paymentMethod == "Electronic check" %}
                                         전자 수표
-                                    {% elif paymentMethod == '2' %}
-                                        우편 수표
-                                    {% elif paymentMethod == '3' %}
+                                    {% elif paymentMethod == "Bank transfer (automatic)" %}
                                         자동 은행 이체
-                                    {% elif paymentMethod == '4' %}
+                                    {% elif paymentMethod == "Credit card (automatic)" %}
                                         자동 신용카드 결제
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">온라인 보안 서비스 여부</p>
-                                <h6 class="mb-0">
-                                    {% if onlineSecurity == '1' %}
-                                        예
-                                    {% elif onlineSecurity == '2' %}
-                                        아니오
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">온라인 백업 서비스 여부</p>
-                                <h6 class="mb-0">
-                                    {% if onlineBackup == '1' %}
-                                        예
-                                    {% elif onlineBackup == '2' %}
-                                        아니오
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">장치 보호</p>
-                                <h6 class="mb-0">
-                                    {% if deviceProtection == '1' %}
-                                        예
-                                    {% elif deviceProtection == '2' %}
-                                        아니오
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">기술 지원</p>
-                                <h6 class="mb-0">
-                                    {% if techSupport == '1' %}
-                                        예
-                                    {% elif techSupport == '2' %}
-                                        아니오
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">TV 스트리밍</p>
-                                <h6 class="mb-0">
-                                    {% if streamingTV == '1' %}
-                                        예
-                                    {% elif streamingTV == '2' %}
-                                        아니오
-                                    {% else %}
-                                        인터넷 서비스 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">영화 스트리밍</p>
-                                <h6 class="mb-0">
-                                    {% if streamingMovies == '1' %}
-                                        예
-                                    {% elif streamingMovies == '2' %}
-                                        아니오
-                                    {% else %}
-                                        인터넷 서비스 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">전자 청구서</p>
-                                <h6 class="mb-0">
-                                    {% if paperlessBilling == '1' %}
-                                        예
-                                    {% elif paperlessBilling == '2' %}
-                                        아니오
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">계약 기간</p>
-                                <h6 class="mb-0">
-                                    {% if contract == '1' %}
-                                        월 단위
-                                    {% elif contract == '2' %}
-                                        1년
-                                    {% elif contract == '3' %}
-                                        2년
                                     {% else %}
                                         정보 없음
                                     {% endif %}
@@ -343,11 +241,7 @@
                             <div class="ms-3">
                                 <p class="mb-2">월 요금</p>
                                 <h6 class="mb-0">
-                                    {% if monthlyCharges %}
-                                        {{ monthlyCharges }}
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
+                                    {{ monthlyCharges|default:"정보 없음" }}
                                 </h6>
                             </div>
                         </div>
@@ -357,11 +251,7 @@
                             <div class="ms-3">
                                 <p class="mb-2">총 요금</p>
                                 <h6 class="mb-0">
-                                    {% if totalCharges %}
-                                        {{ totalCharges }}
-                                    {% else %}
-                                        정보 없음
-                                    {% endif %}
+                                    {{ totalCharges|default:"정보 없음" }}
                                 </h6>
                             </div>
                         </div>

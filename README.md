@@ -66,8 +66,6 @@ pip install -r requirements.txt
 - 모델 저장, ROC 커브 시각화, 특성 중요도 시각화, **SHAP** 분석 등의 공통 기능을 제공합니다.
 
 
-
-
 ---
 
 ## 오류 해결 과정
@@ -99,11 +97,41 @@ pip install -r requirements.txt
 	•	해결 방법: 예측값을 평탄화하고 일관된 차원으로 맞춤.
 
 
+### 결과 분석
+
+
+#### 1. **Random Forest 결과**
+![rf_rocauc_curve](https://github.com/user-attachments/assets/fc24e0cd-da5b-4b34-b1d8-bedc19f356e6)
+
+- 정확도: 0.81
+- ROC-AUC: 0.86
+- 주요 변수: 계약 유형, 월 요금, 가입 기간
+![rf_feature_importance](https://github.com/user-attachments/assets/9bc211b1-9d90-4e14-8b40-422eb78e7d9e)
+
+---
+
+#### 2. **LSTM 결과**
+
+![lstm_auc_graph](https://github.com/user-attachments/assets/fc26a240-8913-4b83-9f97-a6746f0f2225)
+![lstm_loss_graph](https://github.com/user-attachments/assets/72834889-bbd7-459f-a214-eb6cd79b0fa4)
+
+- 정확도: 0.99
+- ROC-AUC: 1.0
+- 어텐션 메커니즘을 통해 중요한 시점에 집중하여 더 높은 성능을 보임.
+![lstm_confusion_matrix](https://github.com/user-attachments/assets/6b8bc69d-be69-4b91-a7f2-8065a40dd63b)
+
+---
+
+#### 3. **Attention 가중치 시각화**
+![attention_weight_value](https://github.com/user-attachments/assets/fa0caf86-0b0a-4f3d-b4b1-579584eacf6c)
+- 각 시점별 가중치가 균등하게 분포하여 장기적인 패턴 학습에 도움이 되었음.
+
 
 ## 팀원 소개
 | 김병수 | 오승민 | 최연규 | 김종식 | 구나연 | 
 |:--:|:--:|:--:|:--:|:--:|
 | @BS-KIM-97 | @min3009 | @zelope | @joowon582 | @Leejoowon123 |
+
 ## 기술 스택
 
 ![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)

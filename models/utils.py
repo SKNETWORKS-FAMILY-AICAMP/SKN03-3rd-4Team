@@ -6,8 +6,8 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from xgboost import XGBClassifier  # XGBoost 분류 모델
 from sklearn.ensemble import RandomForestClassifier  # RandomForest 분류 모델
 import joblib
-import shap
-import matplotlib.pyplot as plt
+# import shap
+# import matplotlib.pyplot as plt
 
 def load_data(file_path):
     """데이터 로드 및 기본 전처리"""
@@ -109,7 +109,7 @@ def save_model(model, filepath):
     joblib.dump(model, filepath)
     print(f"모델이 {filepath}에 저장되었습니다.")
 
-def plot_roc_curve(y_true, y_proba, model_name):
+# def plot_roc_curve(y_true, y_proba, model_name):
     """ROC-AUC 커브 시각화"""
     from sklearn.metrics import roc_curve, auc
     fpr, tpr, _ = roc_curve(y_true, y_proba)
@@ -124,7 +124,7 @@ def plot_roc_curve(y_true, y_proba, model_name):
     plt.legend(loc='lower right')
     plt.show()
 
-def plot_feature_importance(model, feature_names, top_n=20):
+# def plot_feature_importance(model, feature_names, top_n=20):
     """특징 중요도 시각화"""
     importances = model.named_steps['classifier'].feature_importances_
     indices = np.argsort(importances)[-top_n:]
@@ -135,7 +135,7 @@ def plot_feature_importance(model, feature_names, top_n=20):
     plt.xlabel('Relative Importance')
     plt.show()
 
-def shap_analysis(model, X):
+# def shap_analysis(model, X):
     """SHAP 분석"""
     # 모델이 트리 기반 모델이라면 TreeExplainer를 사용
     if isinstance(model.named_steps['classifier'], (XGBClassifier, RandomForestClassifier)):

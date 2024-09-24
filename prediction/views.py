@@ -19,7 +19,24 @@ def predict_churn(request):
     data = json.loads(request.body)
     
     
-    # dl_input_data = preprocess_input(data)
+    dl_input_data = preprocess_input(data)
+    print('ddddd')
+    print(dl_input_data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # 현재 파일의 경로를 기준으로 상대 경로를 계산
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,7 +55,7 @@ def predict_churn(request):
     
 
 
-    X_train_lstm, X_test_lstm, y_train_lstm, y_test_lstm, n_features, max_seq_length, class_weight_dict = preprocess_lstm()
+    X_test_lstm, y_test_lstm, n_features, max_seq_length, class_weight_dict = preprocess_lstm(dl_input_data)
     # 업로드 된 딥모델 파일 경로
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,8 +66,8 @@ def predict_churn(request):
     dl_model = load_model(ml_model_path, custom_objects={'focal_loss_fixed': focal_loss_fixed})
     # 예측
     print('예측시작')
-    predictions = dl_model.predict(X_test_lstm)
+    predictions = dl_model.predict(X_test_lstm).flatten()
     print('예측종료')
-    print(predictions)
+    print(type(X_test_lstm))
 
-    return JsonResponse({'result': 'ㅇ' })
+    return JsonResponse({'result': predictions.tolist() })

@@ -108,213 +108,217 @@
             </nav>
             <!-- Navbar End -->
 
-         
-            <div class="col-sm-12 col-xl-10 mx-auto">
-                <div class="bg-light rounded h-100 p-4 ">
-                    <h6 class="mb-4">고객 정보</h6>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="gender"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Male">남자</option>
-                            <option value="Female">여자</option>
-                        </select>
-                        <label for="gender">성별</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="seniorCitizen"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="0">예</option>
-                            <option value="1">아니오</option>
-                        </select>
-                        <label for="seniorCitizen">노인 여부</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="partner"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
-                        </select>
-                        <label for="partner">배우자 여부</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="dependents"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="0">예</option>
-                            <option value="1">아니오</option>
-                        </select>
-                        <label for="dependents">부양가족 여부</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="tenure" min="1" default="1" value="1">
-                        <label for="tenure">가입개월 수</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="phoneService"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yes">예</option>
-                            <option value="No" selected>아니오</option>
-                        </select>
-                        <label for="phoneService">폰 서비스 여부</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="multipleLines"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No phone service" selected >No phone service</option>
-                        </select>
-                        <label for="multipleLines">다중회선 여부</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="internetService"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="No" selected>아니오</option>
-                            <option value="DSL">DSL</option>
-                            <option value="Fiber optic">Fiber optic</option>
-                            
-                        </select>
-                        <label for="internetService">인터넷 서비스 여부</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="onlineSecurity"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yesy">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service" selected>No internet service</option>
-                        </select>
-                        <label for="onlineSecurity">온라인보안 서비스 여부</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="onlineBackup"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yesy">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service" selected>No internet service</option>
-                        </select>
-                        <label for="onlineBackup">온라인백업 서비스 여부</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="deviceProtection"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yesy">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service" selected>No internet service</option>
-                        </select>
-                        <label for="deviceProtection">장치보호 </label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="techSupport"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yesy">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service" selected>No internet service</option>
-                        </select>
-                        <label for="techSupport">기술 지원</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="streamingTV"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yesy">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service" selected>No internet service</option>
-                        </select>
-                        <label for="streamingTV">TV 스트리밍</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display: none;">
-                        <select class="form-select" id="streamingMovies"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Yesy">예</option>
-                            <option value="No">아니오</option>
-                            <option value="No internet service" selected>No internet service</option>
-                        </select>
-                        <label for="streamingMovies">영화 스트리밍</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="contract"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Month-to-month">월 단위</option>
-                            <option value="One year">1년</option>
-                            <option value="Two year">2년</option>
-                        </select>
-                        <label for="contract">계약 기간</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="paperlessBilling"
-                            aria-label="Floating label select example">
-                            <option selected>Open this select menu</option>
-                            <option value="Yes">예</option>
-                            <option value="No">아니오</option>
-                        </select>
-                        <label for="paperlessBilling">전자 청구서</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="paymentMethod"
-                            aria-label="Floating label select example">
-                            <!-- <option selected>Open this select menu</option> -->
-                            <option value="Electronic check">전자 수표</option>
-                            <option value="2">Bank transfer (automatic)</option>
-                            <option value="Bank transfer (automatic)">자동 은행 이체</option>
-                            <option value="Credit card (automatic)">자동 신용카드 결제</option>
-                        </select>
-                        <label for="paymentMethod">결제 방법</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="monthlyCharges" step="0.01" min="0.01" default="0.01" value="0.01">
-                        <label for="monthlyCharges">월 요금</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="totalCharges" step="0.01" min=0.01 default="0.01" value="0.01">
-                        <label for="totalCharges">총 요금</label>
-                    </div>
-                    <button type="button" class="btn btn-primary" id="submitBtn">조회</button>
-                    <div id="result"></div>
-                    <div id="dataTableContainer" class="mt-4" style="overflow-x: auto;">
-                        <table id="dataTable" class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>성별</th>
-                                    <th>시니어 여부</th>
-                                    <th>파트너 여부</th>
-                                    <th>부양가족 여부</th>
-                                    <th>근속 기간</th>
-                                    <th>전화 서비스</th>
-                                    <th>다중 회선</th>
-                                    <th>인터넷 서비스</th>
-                                    <th>온라인 보안</th>
-                                    <th>온라인 백업</th>
-                                    <th>장치 보호</th>
-                                    <th>기술 지원</th>
-                                    <th>스트리밍 TV</th>
-                                    <th>스트리밍 영화</th>
-                                    <th>계약</th>
-                                    <th>무지불 청구</th>
-                                    <th>결제 방법</th>
-                                    <th>월 요금</th>
-                                    <th>총 요금</th>                                    
-                                    <th>이탈률</th>
-                                    <th>작업</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+            <form method="POST" action="{% url 'solution' %}">
+                {% csrf_token %}
+                <div class="col-sm-12 col-xl-10 mx-auto">
+                    <div class="bg-light rounded h-100 p-4 ">
+                        <h6 class="mb-4">고객 정보</h6>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="gender" name="gender"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Male">남자</option>
+                                <option value="Female">여자</option>
+                            </select>
+                            <label for="gender">성별</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="seniorCitizen" name="seniorCitizen"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="0">예</option>
+                                <option value="1">아니오</option>
+                            </select>
+                            <label for="seniorCitizen">노인 여부</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="partner" name="partner"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                            </select>
+                            <label for="partner">배우자 여부</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="dependents" name="dependents"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="0">예</option>
+                                <option value="1">아니오</option>
+                            </select>
+                            <label for="dependents">부양가족 여부</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="tenure" name="tenure" min="1" default="1" value="1">
+                            <label for="tenure">가입개월 수</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="phoneService" name="phoneService"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No" selected>아니오</option>
+                            </select>
+                            <label for="phoneService">폰 서비스 여부</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="multipleLines" name="multipleLines"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No phone service" selected >No phone service</option>
+                            </select>
+                            <label for="multipleLines">다중회선 여부</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="internetService" name="internetService"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="No" selected>아니오</option>
+                                <option value="DSL">DSL</option>
+                                <option value="Fiber optic">Fiber optic</option>
+
+                            </select>
+                            <label for="internetService">인터넷 서비스 여부</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="onlineSecurity" name="onlineSecurity"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No internet service" selected>No internet service</option>
+                            </select>
+                            <label for="onlineSecurity">온라인보안 서비스 여부</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="onlineBackup" name="onlineBackup"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No internet service" selected>No internet service</option>
+                            </select>
+                            <label for="onlineBackup">온라인백업 서비스 여부</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="deviceProtection" name="deviceProtection"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No internet service" selected>No internet service</option>
+                            </select>
+                            <label for="deviceProtection">장치보호 </label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="techSupport" name="techSupport"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No internet service" selected>No internet service</option>
+                            </select>
+                            <label for="techSupport">기술 지원</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="streamingTV" name="streamingTV"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No internet service" selected>No internet service</option>
+                            </select>
+                            <label for="streamingTV">TV 스트리밍</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: none;">
+                            <select class="form-select" id="streamingMovies" name="streamingMovies"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                                <option value="No internet service" selected>No internet service</option>
+                            </select>
+                            <label for="streamingMovies">영화 스트리밍</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="contract" name="contract"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Month-to-month">월 단위</option>
+                                <option value="One year">1년</option>
+                                <option value="Two year">2년</option>
+                            </select>
+                            <label for="contract">계약 기간</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="paperlessBilling" name="paperlessBilling"
+                                aria-label="Floating label select example">
+                                <option selected>Open this select menu</option>
+                                <option value="Yes">예</option>
+                                <option value="No">아니오</option>
+                            </select>
+                            <label for="paperlessBilling">전자 청구서</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="paymentMethod" name="paymentMethod"
+                                aria-label="Floating label select example">
+                                <!-- <option selected>Open this select menu</option> -->
+                                <option value="Electronic check">전자 수표</option>
+                                <option value="2">Bank transfer (automatic)</option>
+                                <option value="Bank transfer (automatic)">자동 은행 이체</option>
+                                <option value="Credit card (automatic)">자동 신용카드 결제</option>
+                            </select>
+                            <label for="paymentMethod">결제 방법</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="monthlyCharges" name="monthlyCharges" step="0.01" min="0.01" default="0.01" value="0.01">
+                            <label for="monthlyCharges">월 요금</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="totalCharges" name="totalCharges" step="0.01" min=0.01 default="0.01" value="0.01">
+                            <label for="totalCharges">총 요금</label>
+                        </div>
+<!--                         <button type="button" class="btn btn-primary" id="submitBtn">조회</button> -->
+                        <button type="submit" class="btn btn-primary" id="submitBtn">조회</button>
+                        <div id="result"></div>
+                        <div id="dataTableContainer" class="mt-4" style="overflow-x: auto;">
+                            <table id="dataTable" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>성별</th>
+                                        <th>시니어 여부</th>
+                                        <th>파트너 여부</th>
+                                        <th>부양가족 여부</th>
+                                        <th>근속 기간</th>
+                                        <th>전화 서비스</th>
+                                        <th>다중 회선</th>
+                                        <th>인터넷 서비스</th>
+                                        <th>온라인 보안</th>
+                                        <th>온라인 백업</th>
+                                        <th>장치 보호</th>
+                                        <th>기술 지원</th>
+                                        <th>스트리밍 TV</th>
+                                        <th>스트리밍 영화</th>
+                                        <th>계약</th>
+                                        <th>무지불 청구</th>
+                                        <th>결제 방법</th>
+                                        <th>월 요금</th>
+                                        <th>총 요금</th>                                    
+                                        <th>이탈률</th>
+                                        <th>작업</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -441,6 +445,7 @@
                 monthlyCharges: document.getElementById('monthlyCharges').value,
                 totalCharges: document.getElementById('totalCharges').value
             };
+
 
             fetch('predict_churn', {
                 method: 'POST',

@@ -106,6 +106,7 @@ pip install -r requirements.txt
 - 정확도: 0.81
 - ROC-AUC: 0.86
 - 주요 변수: 계약 유형, 월 요금, 가입 기간
+
 ![rf_feature_importance](https://github.com/user-attachments/assets/9bc211b1-9d90-4e14-8b40-422eb78e7d9e)
 
 ---
@@ -118,12 +119,14 @@ pip install -r requirements.txt
 - 정확도: 0.99
 - ROC-AUC: 1.0
 - 어텐션 메커니즘을 통해 중요한 시점에 집중하여 더 높은 성능을 보임.
+
 ![lstm_confusion_matrix](https://github.com/user-attachments/assets/6b8bc69d-be69-4b91-a7f2-8065a40dd63b)
 
 ---
 
 #### 3. **Attention 가중치 시각화**
 ![attention_weight_value](https://github.com/user-attachments/assets/fa0caf86-0b0a-4f3d-b4b1-579584eacf6c)
+
 - 각 시점별 가중치가 균등하게 분포하여 장기적인 패턴 학습에 도움이 되었음.
 
 

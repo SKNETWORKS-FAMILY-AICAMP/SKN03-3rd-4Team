@@ -145,6 +145,11 @@ pip install -r requirements.txt
 	•	오류 원인: 예측값의 차원이 다름.
 	•	해결 방법: 예측값을 평탄화하고 일관된 차원으로 맞춤.
 
+6. 페이지 템플릿 적용 오류<br>
+    •   오류 원인: 템플릿을 바탕으로 화면을 구현하였는데, 이를 우리 프로젝트의 화면에 적용하는 과정에서 css나 javascript가 적용이 되자 않았었음
+    •   해결 방법: 불러온 템플릿에서 css와 js가 적용하는 부분을 확인하고 이를 우리 프로젝트에 맞게 수정하니 적용이 잘 되었다.
+
+
 
 ### 결과 분석
 
@@ -220,3 +225,16 @@ pip install -r requirements.txt
 ![keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
 ![tensorflow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![matplotlib](https://img.shields.io/badge/Matplotlib-013243?style=for-the-badge&logo=matplotlib&logoColor=white)
+## 느낀점
+**승민** : 성능이 안나오면 데이터를 늘리자..!
+성능이 안나오면 남들 논문을 보고 잘 만든 모델과 알고리즘을 가져오자..!
+
+**병수** :
+
+
+**연규** : 
+
+**종식** : 항상 납기의 중요성을 느낍니다 내 역할 속에 내가 할 수 있는 일을 미리하지 않으면  내일의 내가 죽는다는 것을 되새김
+
+
+**나연** : 화면구현에서 전달하고자하는 부분을 효과적으로 나타내는 것도 웹개발을 하는 데 있어서 중요한 요소라고 생각이 들었습니다. 이번 모델 학습 결과를 바탕으로 좋은 모델 성능을 구현하는 것도 좋지만, 그 과정에서 어떤 feature가 이탈에 영향을 미치는지 파악한 다음 이를 바탕으로 유의미한 결론을 효과적으로 나타내고 싶었으나 이를 파악하고 표현하는 능력이 아직 부족한 거 같아 시간내에 구현하지 못한것이 매우 아쉬웠습니다ㅜㅜ🥲😢🥹 

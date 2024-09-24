@@ -16,6 +16,10 @@
     - `imblearn`
     - `scipy`
     - `numpy`
+    - `pandas`
+    - `keras`
+    - `tensorflow`
+    - `matplotlib`
     - `shap`
     - `joblib`
 

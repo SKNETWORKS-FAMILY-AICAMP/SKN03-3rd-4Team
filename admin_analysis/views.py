@@ -45,14 +45,4 @@ def admin_analysis(request):
         'no_tenure_avg':no_tenure_avg
     })
 
-file_path = r'C:/dev/github/SKN03-3rd-4Team/Churn_Data_-_Final_Version2.csv'
-df = pd.read_csv(file_path)
-churn_yes_tenure=[]
-chrun_no_tenure=[]
-for i in range(len(df['churn_2023'])):
-    if df['churn_2023'][i]=="Yes":
-        churn_yes_tenure.append(int(df['tenure_2023'][i]))
-    else:
-        chrun_no_tenure.append(int(df['tenure_2023'][i]))
-
 

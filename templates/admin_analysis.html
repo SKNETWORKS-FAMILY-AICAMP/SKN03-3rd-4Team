@@ -190,8 +190,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Member</p>
+                                <h6 class="mb-0">7043</h6>
                             </div>
                         </div>
                     </div>
@@ -199,8 +199,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Admin Member</p>
+                                <h6 class="mb-0">4</h6>
                             </div>
                         </div>
                     </div>
@@ -208,8 +208,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Member</p>
+                                <h6 class="mb-0">5714</h6>
                             </div>
                         </div>
                     </div>
@@ -217,8 +217,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Out</p>
+                                <h6 class="mb-0">1869</h6>
                             </div>
                         </div>
                     </div>
@@ -229,51 +229,6 @@
              <!-- Chart Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Single Line Chart</h6>
-                            <canvas id="line-chart"></canvas>
-                        </div>
-                    </div>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        var ctx = document.getElementById('line-chart').getContext('2d');
-                        var lineChart = new Chart(ctx, {
-                            type: 'line',
-                            data: {
-                                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                                datasets: [{
-                                    label: 'Attribute Trend Over Time',
-                                    data: [65, 59, 80, 81, 56, 55, 40],
-                                    fill: false,
-                                    borderColor: '#66B2FF',
-                                    tension: 0.1
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        beginAtZero: true
-                                    },
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                },
-                                plugins: {
-                                    legend: {
-                                        position: 'top',
-                                    }
-                                }
-                            }
-                        });
-                    </script>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Line Chart</h6>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
                     <!-- <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Single Bar Chart</h6>
@@ -282,24 +237,84 @@
                     </div> -->
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Gender Ratio Bar Chart</h6>
-                            <canvas id="bar-chart"></canvas>
+                            <h6 class="mb-4">Churn ratio</h6>
+                            <canvas id="doughnut-chart"></canvas>
                         </div>
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
-                        
-                        var ctx = document.getElementById('bar-chart').getContext('2d');
-                        const gender_female = {{ gender_female }};
-                        console.log(gender_female);
-                        var genderRatioData = {
-                            labels: ['Male', 'Female'],
+                        var ctx = document.getElementById('doughnut-chart').getContext('2d');
+
+                        // Django 템플릿 변수를 사용하여 데이터 불러오기
+                        var churnYes = {{ churn_yes }};
+                        var churnNo = {{ churn_no }};
+                        console.log(churnYes);
+                        var churnRatioData = {
+                            labels: ['Yes', 'No'],
                             datasets: [{
-                                label: 'Count',
-                                data: [
-                                    {{ gender_male }},  // 기본값 설정
-                                    {{ gender_female }}  // 기본값 설정
-                                ], 
+                                label: 'Churn Ratio',
+                                data: [churnYes, churnNo],  // Django에서 넘긴 데이터 사용
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.6)',  // Yes - 빨간색
+                                    'rgba(54, 162, 235, 0.6)'   // No - 파란색
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',    // Yes - 빨간색 경계선
+                                    'rgba(54, 162, 235, 1)'     // No - 파란색 경계선
+                                ],
+                                borderWidth: 1
+                            }]
+                        };
+
+                        var config = {
+                            type: 'doughnut',  // 차트 유형을 도넛 차트로 설정
+                            data: churnRatioData,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',  // 범례 위치
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                let label = context.label || '';
+                                                let value = context.raw || 0;
+                                                return `${label}: ${value}`;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        };
+
+                        var churnRatioChart = new Chart(ctx, config);
+                    </script>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Churn Tenure Avg</h6>
+                            <canvas id="bar-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var ctx = document.getElementById('bar-chart').getContext('2d');
+                        
+                        // 템플릿에서 전달된 변수 렌더링
+                        var yes_tenure_avg = {{ yes_tenure_avg|default:0 }};
+                        var no_tenure_avg = {{ no_tenure_avg|default:0 }};
+                        
+                        // 데이터 확인을 위해 출력
+                        console.log("Yes Tenure Avg: ", yes_tenure_avg);
+                        console.log("No Tenure Avg: ", no_tenure_avg);
+                    
+                        var tenureAvg = {
+                            labels: ['Churn Yes', 'Churn No'],
+                            datasets: [{
+                                label: 'Tenure Avg',
+                                data: [yes_tenure_avg, no_tenure_avg], 
                                 backgroundColor: [
                                     'rgba(75, 192, 192, 0.6)', 
                                     'rgba(153, 102, 255, 0.6)'  
@@ -314,42 +329,27 @@
                     
                         var config = {
                             type: 'bar',
-                            data: genderRatioData,
+                            data: tenureAvg,
                             options: {
                                 scales: {
-                                    x: {
-                                        beginAtZero: true
-                                    },
                                     y: {
                                         beginAtZero: true
-                                    }
-                                },
-                                plugins: {
-                                    datalabels: {
-                                        color: 'black',
-                                        font: {
-                                            weight: 'bold'
-                                        },
-                                        formatter: function(value, context) {
-                                            return value;
-                                        }
                                     }
                                 }
                             }
                         };
                     
-                        var genderRatioChart = new Chart(ctx, config);
+                        var chart = new Chart(ctx, config);
                     </script>
                 
+                    
+
+
+
+          
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Voting Classifier Confusion Matrix</h6>
+                            <h6 class="mb-4">Confusion Matrix Random forest</h6>
                             <canvas id="confusionMatrixChart"></canvas>
                         </div>
                     </div>
@@ -403,12 +403,177 @@
                 
                         var confusionMatrixChart = new Chart(ctx, config);
                     </script>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Confusion Matrix LSTM</h6>
+                            <canvas id="confusionMatrix-LSTM"></canvas>
+                        </div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var ctx = document.getElementById('confusionMatrix-LSTM').getContext('2d');
+                
+                        var confusionMatrix = {
+                            labels: ['Predicted 0', 'Predicted 1'],
+                            datasets: [{
+                                label: 'Actual 0',
+                                data: [1025, 8],
+                                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Actual 1',
+                                data: [0, 376],
+                                backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                                borderColor: 'rgba(153, 102, 255, 1)',
+                                borderWidth: 1
+                            }]
+                        };
+                
+                        var config = {
+                            type: 'bar',
+                            data: confusionMatrix,
+                            options: {
+                                scales: {
+                                    x: {
+                                        stacked: true
+                                    },
+                                    y: {
+                                        stacked: true,
+                                        beginAtZero: true
+                                    }
+                                },
+                                plugins: {
+                                    datalabels: {
+                                        color: 'black',
+                                        font: {
+                                            weight: 'bold'
+                                        },
+                                        formatter: function(value, context) {
+                                            return value;
+                                        }
+                                    }
+                                }
+                            }
+                        };
+                
+                        var confusionMatrixChart = new Chart(ctx, config);
+                    </script>
                     
                     
 
                     
-            
                     
+
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Landomforest 분류 보고서</h6>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">precision</th>
+                                        <th scope="col">recall</th>
+                                        <th scope="col">f1-score</th>
+                                        <th scope="col">support</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">0.0</th>
+                                        <td>0.88</td>
+                                        <td>0.85</td>
+                                        <td>0.87</td>
+                                        <td>931</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1.0</th>
+                                        <td>0.62</td>
+                                        <td>0.69</td>
+                                        <td>0.65</td>
+                                        <td>337</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">accuracy</th>
+                                        <td></td>
+                                        <td></td>
+                                        <td>0.81</td>
+                                        <td>1268</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">macro avg</th>
+                                        <td>0.75</td>
+                                        <td>0.77</td>
+                                        <td>0.76</td>
+                                        <td>1268</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">weighted avg</th>
+                                        <td>0.81</td>
+                                        <td>0.81</td>
+                                        <td>0.81</td>
+                                        <td>1268</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">LSTM 분류 보고서</h6>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">precision</th>
+                                        <th scope="col">recall</th>
+                                        <th scope="col">f1-score</th>
+                                        <th scope="col">support</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">0.0</th>
+                                        <td>1.00</td>
+                                        <td>0.99</td>
+                                        <td>1.00</td>
+                                        <td>1033</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1.0</th>
+                                        <td>0.98</td>
+                                        <td>1.00</td>
+                                        <td>0.99</td>
+                                        <td>376</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">accuracy</th>
+                                        <td></td>
+                                        <td></td>
+                                        <td>0.99</td>
+                                        <td>1409</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">macro avg</th>
+                                        <td>0.99</td>
+                                        <td>1.00</td>
+                                        <td>0.99</td>
+                                        <td>1409</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">weighted avg</th>
+                                        <td>0.99</td>
+                                        <td>0.99</td>
+                                        <td>0.99</td>
+                                        <td>1409</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Classifier Performance - Precision</h6>
@@ -450,11 +615,165 @@
                             }
                         });
                     </script>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Feature Importances</h6>
+                            <!-- 이미지 삽입 -->
+                            <img src="{% static 'img/rf_feature_importance.png' %}" alt="LSTM Report" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Random forest ROC Curve</h6>
+                            <!-- 이미지 삽입 -->
+                            <img src="{% static 'img/rf_rocauc_curve.png' %}" alt="LSTM Report" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">LSTM ROC Curve</h6>
+                            <!-- 이미지 삽입 -->
+                            <img src="{% static 'img/lstm_auc_graph.png' %}" alt="LSTM Report" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">LSTM Model Loss</h6>
+                            <!-- 이미지 삽입 -->
+                            <img src="{% static 'img/lstm_loss_graph.png' %}" alt="LSTM Report" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">LSTM Attention Weight</h6>
+                            <!-- 이미지 삽입 -->
+                            <img src="{% static 'img/attention_weight_value.png' %}" alt="LSTM Report" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="bg-light rounded h-100 p-4">
+                        <h6 class="mb-4">LSTM Model : functional_1</h6>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Layer(type)</th>
+                                        <th scope="col">Output shape</th>
+                                        <th scope="col">Param #</th>
+                                        <th scope="col">Connected to</th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">input_layer</th>
+                                        <td>(None, 6, 42)</td>
+                                        <td>0</td>
+                                        <td>-</td>
+                                   
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NotEqual</th>
+                                        <td>(None, 6, 42)</td>
+                                        <td>0</td>
+                                        <td>input_layer[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Masking</th>
+                                        <td>(None, 6, 42)</td>
+                                        <td>0</td>
+                                        <td>input_layer[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Masking</th>
+                                        <td>(None, 6, 42)</td>
+                                        <td>0</td>
+                                        <td>not_equal_1</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Any</th>
+                                        <td>(None, 6)</td>
+                                        <td>0</td>
+                                        <td>not_equal_1[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">LSTM</th>
+                                        <td>(None, 6, 128)</td>
+                                        <td>87,552</td>
+                                        <td>masking_layer[0][0],<br>
+                                            any_1[0][0]
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Dropout</th>
+                                        <td>(None, 6, 128)</td>
+                                        <td>0</td>
+                                        <td>lstm_layer_1[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">BatchNormalization</th>
+                                        <td>(None, 6, 128)</td>
+                                        <td>512</td>
+                                        <td>dropout_1[0][0],<br>
+                                            any_1[0][0]
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">AttentionWithContext</th>
+                                        <td>[(None, 6, 128),<br>
+                                            (None, 6, 128)]
+                                        </td>
+                                        <td>16,512</td>
+                                        <td>batchnorm_1[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">LSTM</th>
+                                        <td>(None, 64)</td>
+                                        <td>49,408</td>
+                                        <td>attention_layer[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Dropout</th>
+                                        <td>(None, 64)</td>
+                                        <td>0</td>
+                                        <td>lstm_layer_2[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">BatchNormalization</th>
+                                        <td>(None, 64)</td>
+                                        <td>256</td>
+                                        <td>dropout_2[0][0]</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Dense</th>
+                                        <td>(None, 1)</td>
+                                        <td>65</td>
+                                        <td>batchnorm_2[0][0]</td>
+
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+               
 
                     
                 </div>
                 
             </div>
+            
             
             <!-- Chart End -->
 

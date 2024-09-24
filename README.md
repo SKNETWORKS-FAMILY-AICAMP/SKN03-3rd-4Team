@@ -14,31 +14,31 @@
       <td align="center">
         <div>
           <img src="https://i.namu.wiki/i/yXx6ESHdd8pAD4MH7yogqtY9ZT11KYwrMJup-u8hwEuAfbdP_6AQgAFiubX9PI9Hi4ugFbTHwY4cCYGjKXytKg.webp"width="100px;"height="140px;" alt=""/>
-           <a href="https://github.com/Lerini98"><div align=center>오승민</div></a>
+           <div align=center>오승민</div>
         </div>
       </td>
       <td align="center">
         <div>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5_5TjQqzEHTdKixLyvCZqFe5pbfshSDZ7pBQ_4MXN9LUWS7tPE5xQBsRzBqYvvY4I68&usqp=CAU"width="100px;"height="140px;" alt=""/>
-          <a href="https://github.com/jeehun98"><div align=center>김병수</div></a>
+          <div align=center>김병수</div>
         </div>
       </td>
       <td align="center">
         <div>
           <img src="https://i.namu.wiki/i/KwRE2BGDM3SPSpYClq_eVV5-XRoWpb5yNoPcbHjwWQno9OLmQvMrOQtmAN_5EIonlXNMyJsnRrqydEd6ED68XQ.webp"width="100px;"height="140px;" alt=""/>
-          <a href="https://github.com/5-lee"><div align=center>최연규</div></a>
+          <div align=center>최연규</div>
         </div>
       </td>
       <td align="center">
         <div>
           <img src="https://i.namu.wiki/i/RFSw15kinXP8GxT-4DVmbx8Iqp1VME0jRnV0hQtcD1RODG3a4LN1SGNHF_qcD20tGGyZnueOWxw51puRkloWCg.webp"width="100px;"height="140px;" alt=""/>
-            <a href="https://github.com/{깃헙주소}"><div align=center>김종식</div></a>
+            <div align=center>김종식</div>
         </div>
       </td>
       <td align="center">
         <div>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFiHPLAspc66fvh62y_dFZucAjqPWd1uDxUayMHPTd6tcCubupNdusUtJVJiI5nGGG27Q&usqp=CAU"width="100px;"height="140px;" alt=""/>
-            <a href="https://github.com/{깃헙주소}"><div align=center>구나연</div></a>
+            <div align=center>구나연</div>
         </div>
       </td>
     </tr>
@@ -49,7 +49,7 @@
 ### 팀원별 역할 소개
 | 오승민 | 김병수 | 최연규 | 김종식 | 구나연 | 
 |:--:|:--:|:--:|:--:|:--:|
-| @BS-KIM-97 | @min3009 | @zelope | @joowon582 | @Leejoowon123 |
+| 팀장, 예측모델 개발, 프로젝트 조율 | 메인화면 구현 및 프로젝트 merge | 예측모델 기반으로 고객관리 페이지 구현 | 이탈고객을 막기위한 솔루션 페이지 구현 | 모델 결과 및 관리자페이지 구현 |
 
 
 

@@ -66,43 +66,6 @@ pip install -r requirements.txt
 - 모델 저장, ROC 커브 시각화, 특성 중요도 시각화, **SHAP** 분석 등의 공통 기능을 제공합니다.
 
 
-## 프로젝트 구조
-
-```
-churn-prediction/
-├── data/
-│   └── Churn_Data_-_Final_Version.csv
-├── images/
-│   └── churn_prediction.png
-├── models/
-│   ├── best_rf_model.pkl
-│   └── lstm_model.keras
-├── src/
-│   ├── __init__.py
-│   ├── ml_models.py
-│   ├── lstm_model.py
-│   └── utils.py
-├── main_ml.py
-├── main_dl.py
-├── requirements.txt
-└── README.md
-```
-
-- **data/**: 데이터셋을 포함합니다.
-- **images/**: 프로젝트 관련 이미지(예: 다이어그램, 스크린샷)를 저장합니다.
-- **models/**: 학습된 모델 파일을 저장합니다.
-- **src/**: 소스 코드 모듈을 포함합니다.
-  - **ml_models.py**: 머신러닝(RandomForest) 관련 함수들을 구현합니다.
-  - **lstm_model.py**: 딥러닝(LSTM) 관련 함수들을 구현합니다.
-  - **utils.py**: 공통 유틸리티 함수들을 포함합니다.
-- **main_ml.py**: 머신러닝(RandomForest) 모델 전처리 및 학습을 실행하는 메인 스크립트입니다.
-- **main_dl.py**: 딥러닝(LSTM) 모델 전처리 및 학습을 실행하는 메인 스크립트입니다.
-- **requirements.txt**: 프로젝트 의존성 목록을 포함합니다.
-- **README.md**: 프로젝트 문서입니다.
-
----
-
-
 ## 팀원 소개
 | 김병수 | 오승민 | 최연규 | 김종식 | 구나연 | 
 |:--:|:--:|:--:|:--:|:--:|
